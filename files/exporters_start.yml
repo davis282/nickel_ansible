@@ -1,0 +1,96 @@
+---
+- name: Install prometheus
+  yum:
+    name: prometheus
+    state: present
+
+- name: Install alertmanager
+  yum:
+    name: alertmanager
+    state: present
+
+- name: Install grafana
+  yum:
+    name: grafana-server
+    stae: present
+
+- name: Install node exporter
+  yum:
+    name: node_exporter
+    state: present
+
+- name: Install ipmi exporter
+  yum:
+    name: ipmi_exporter
+    state: present
+
+- name: Install blackbox exporter
+  yum:
+    name: blackbox_exporter
+    state: present 
+
+- include: prometheus.yml
+- include: alertmanager.yml
+- name: Set up prometheus
+  hosts: group_name
+  gather_facts: true
+  user: centos
+  become: true
+  vars_files:
+  - ../group_vars/jhb.yml
+  - ../group_vars/prometheus.yml
+
+  roles:
+    - prometheus
+    - firewalld
+
+- name: Set up grafana
+  hosts: group_name
+  gather_facts: true
+  user: centos
+  become: true
+  vars_files:
+  - ../group_vars/jhb.yml
+
+  roles:
+    - grafana
+
+- name: reload daemons
+  shell: systemctl daemon-reload
+
+- name: Start prometheus
+  service:
+    name: prometheus
+    state: started
+    enabled: yes
+
+- name: Start alertmanager
+  service:
+    name: alertmanager
+    state: started
+    enabled: yes
+
+- name: Start grafana
+  service:
+    name: grafana-server
+    state: started
+    enabled: yes
+
+- name: Start blackbox exporter
+  service:
+    name: blackbox_exporter
+    state: started
+    enabled: yes
+
+- name: Start ipmi exporter
+  service:
+    name: ipmi_exporter
+    state: started
+    enabled: yes
+
+- name: Start node exporter
+  service:
+    name: node_exporter
+    state: started
+    enabled: yes
+...
