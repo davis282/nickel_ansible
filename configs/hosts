@@ -1,0 +1,35 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+192.168.59.7 nickeli
+192.168.95.1 enickeli e1
+192.168.95.4 enickel4 e4
+192.168.95.5 enickel5 e5
+192.168.95.6 enickel6 e6
+192.168.95.7 enickel7 e7
+192.168.95.8 enickel8 e8
+192.168.95.9 enickel9 e9
+192.168.95.10 enickel10 e10
+192.168.95.11 enickel11 e11
+
+
+
+192.168.96.1 pnickeli p1
+192.168.96.4 p4
+192.168.96.5 p5
+192.168.96.6 p6
+192.168.96.7 p7
+192.168.96.8 p8
+192.168.96.9 p9
+192.168.96.10 p10
+192.168.96.11 p11
+
+192.168.125.1 inickeli i1
+192.168.125.4 i4
+192.168.125.5 i5
+192.168.125.6 i6
+192.168.125.7 i7
+192.168.125.8 i8
+192.168.125.9 i9
+192.168.125.10 i10
+192.168.125.11 i11
